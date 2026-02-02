@@ -13,6 +13,9 @@ export const errorHandler = (App: App<Element>) => {
         console.group('%c >>>>>> Error >>>>>>', 'color:red')
         console.error(err)
         console.groupEnd()
+        console.group('%c >>>>>> Component Name >>>>>>', 'color:orange')
+        console.log(vm?.$options?.name || 'Unknown')
+        console.groupEnd()
       }
     })
   }

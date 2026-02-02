@@ -7,6 +7,7 @@
 <script setup lang="ts">
 import { initializeAudio } from './utils/common'
 import { IMSDK } from '@/utils/imCommon'
+import { getIMToken } from '@/utils/storage'
 
 initializeAudio()
 
@@ -15,6 +16,12 @@ document.addEventListener('contextmenu', function (event) {
 })
 
 document.addEventListener('visibilitychange', function () {
+  // Only call setAppBackgroundStatus if SDK is initialized (user is logged in)
+  const isSDKInitialized = !!getIMToken()
+  if (!isSDKInitialized) {
+    return
+  }
+
   if (document.visibilityState === 'visible') {
     IMSDK.setAppBackgroundStatus(false)
   }
