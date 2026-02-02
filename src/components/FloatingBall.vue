@@ -9,7 +9,9 @@
     <div class="marquee-container">
       <div class="marquee-content">
         <span class="ball-text">bruce欢迎您</span>
+        <span class="ball-text">注册验证码 666666</span>
         <span class="ball-text">bruce欢迎您</span>
+        <span class="ball-text">注册验证码 666666</span>
       </div>
     </div>
   </div>
