@@ -1,7 +1,8 @@
-const BASE_DOMAIN = 'your-server-domain'
-const CHAT_URL = `http://${BASE_DOMAIN}/chat`
-const API_URL = `http://${BASE_DOMAIN}/api`
-const WS_URL = `ws://${BASE_DOMAIN}/msg_gateway`
+const BASE_DOMAIN = 'backend-openim.36x9.com'
+// Use full URLs for OpenIM SDK (WASM module needs direct connections)
+const CHAT_URL = `https://api-chat-openim.36x9.com`
+const API_URL = `https://api-openim.36x9.com`
+const WS_URL = `wss://msggateway-openim.36x9.com`
 
 export default {
   NODE_ENV: 'production',
