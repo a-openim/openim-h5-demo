@@ -65,7 +65,7 @@ fi
 
 # Deploy to Cloudflare Pages
 echo -e "${YELLOW}Deploying to Cloudflare Pages...${NC}"
-wrangler pages deploy "$BUILD_DIR" $ENVIRONMENT --project-name="$PROJECT_NAME"
+wrangler pages deploy "$BUILD_DIR" $ENVIRONMENT --project-name="$PROJECT_NAME" --commit-dirty=true
 
 echo -e "${GREEN}✓ Deployment completed successfully!${NC}"
 echo -e "${GREEN}Your site is now live on Cloudflare Pages${NC}"

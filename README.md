@@ -192,3 +192,21 @@ For more advanced features, audio/video calls, or video conferences, please cont
 1. **When publishing to the web, how to solve slow WASM loading?**
 
    Answer: Use gzip compression on the WASM file to significantly reduce the size. You can also leverage a CDN to accelerate loading.
+
+
+
+2. GitHub Releases (白嫖 CDN 的黑科技)
+GitHub Pages 有单文件限制，但 GitHub Releases 几乎没有（单文件支持到 2GB）。
+
+操作：
+
+在你的 GitHub 仓库发一个 Release（比如版本号 v1.0.0）。
+
+把 openIM.wasm 作为附件上传。
+
+上传后，右键点击下载链接。
+
+重点： 使用 jsDelivr 这种 CDN 代理这个链接，速度极快：
+https://cdn.jsdelivr.net/gh/你的用户名/仓库名@v1.0.0/openIM.wasm
+
+优势： 全球加速，不占服务器空间。

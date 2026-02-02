@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     CommonEmpty: typeof import('./src/components/CommonEmpty/index.vue')['default']
     CustomEdit: typeof import('./src/components/CustomEdit/index.vue')['default']
     DetailInfoItem: typeof import('./src/components/DetailInfoItem/index.vue')['default']
+    FloatingBall: typeof import('./src/components/FloatingBall.vue')['default']
     GenericListItem: typeof import('./src/components/GenericListItem/index.vue')['default']
     NavBar: typeof import('./src/components/NavBar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
