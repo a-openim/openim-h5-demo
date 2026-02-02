@@ -56,10 +56,10 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
 
 # Determine if this is a production deployment
 if [ "$CURRENT_BRANCH" = "$PRODUCTION_BRANCH" ]; then
-    ENVIRONMENT="--env=production"
-    echo -e "${YELLOW}Deploying to production environment...${NC}"
+    ENVIRONMENT="--branch=$PRODUCTION_BRANCH"
+    echo -e "${YELLOW}Deploying to production environment (branch: $PRODUCTION_BRANCH)...${NC}"
 else
-    ENVIRONMENT=""
+    ENVIRONMENT="--branch=$CURRENT_BRANCH"
     echo -e "${YELLOW}Deploying to preview environment (branch: $CURRENT_BRANCH)...${NC}"
 fi
 
