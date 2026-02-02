@@ -1,5 +1,10 @@
 <template>
   <div class="page_container relative !bg-white px-10">
+    <div class="absolute right-5 top-5">
+      <van-button size="mini" type="primary" round @click="showLanguage = true">
+        {{ currentLang === 'zh-CN' ? '中文' : 'EN' }}
+      </van-button>
+    </div>
     <img class="mx-auto mt-[80px] h-16 w-16" src="@assets/images/logo.png" alt="" />
     <div class="mx-auto text-lg font-semibold text-primary">{{ $t('welcome') }}</div>
 
@@ -93,6 +98,8 @@
     </van-popup>
 
     <van-action-sheet v-model:show="showActions" :actions="actions" @select="onSelect" />
+
+    <van-action-sheet v-model:show="showLanguage" :actions="languageActions" @select="onLanguageSelect" />
   </div>
 </template>
 
@@ -104,6 +111,7 @@ import countryCode from '@/utils/areaCode'
 import { feedbackToast } from '@/utils/common'
 import { setIMProfile } from '@/utils/storage'
 import { UsedFor } from '@/api/data'
+import { localLanguage, setLanguage } from '@/i18n'
 
 const version = process.env.VERSION
 
@@ -126,6 +134,17 @@ const isByPassword = ref(true)
 const isByEmail = ref(false)
 const showAreaCode = ref(false)
 const count = ref(0)
+const showLanguage = ref(false)
+const currentLang = ref(localLanguage())
+
+const languageActions = [
+  { name: '中文', value: 'zh-CN' },
+  { name: 'English', value: 'en-US' },
+]
+
+const onLanguageSelect = (item: { name: string; value: string }) => {
+  switchLanguage(item.value)
+}
 let timer: NodeJS.Timer
 
 const onSubmit = async () => {
@@ -204,6 +223,13 @@ const onSelect = (item: { idx: number; name: string }) => {
       isByEmail: item.idx === 0 ? true + '' : false + '',
     },
   })
+}
+
+const switchLanguage = (lang: string) => {
+  setLanguage(lang)
+  currentLang.value = lang
+  showLanguage.value = false
+  window.location.reload()
 }
 </script>
 

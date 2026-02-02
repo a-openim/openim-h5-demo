@@ -5,7 +5,7 @@
       :badge="conversationStore.storeUnReadCount"
       :badge-props="{ max: 99, showZero: false }"
     >
-      <span>OpenIM</span>
+      <span>bruce</span>
       <template #icon="props">
         <img :src="props.active ? conversation_active : conversation" />
       </template>
