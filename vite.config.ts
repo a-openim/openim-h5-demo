@@ -14,6 +14,24 @@ export default defineConfig({
     port: 3003,
     host: '0.0.0.0',
     hmr: true,
+    proxy: {
+      '/api': {
+        target: 'https://backend-openim.36x9.com',
+        changeOrigin: true,
+        secure: true,
+      },
+      '/chat': {
+        target: 'https://backend-openim.36x9.com',
+        changeOrigin: true,
+        secure: true,
+      },
+      '/msg_gateway': {
+        target: 'wss://backend-openim.36x9.com',
+        changeOrigin: true,
+        ws: true,
+        secure: true,
+      },
+    },
   },
   define: {
     'process.env':

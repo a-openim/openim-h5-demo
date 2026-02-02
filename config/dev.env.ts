@@ -1,7 +1,8 @@
 const BASE_DOMAIN = 'backend-openim.36x9.com'
-const CHAT_URL = `https://${BASE_DOMAIN}/chat`
-const API_URL = `https://${BASE_DOMAIN}/api`
-const WS_URL = `wss://${BASE_DOMAIN}/msg_gateway`
+// Use local proxy for development to avoid CORS issues
+const CHAT_URL = '/chat'
+const API_URL = '/api'
+const WS_URL = '/msg_gateway'
 
 export default {
   NODE_ENV: 'development',
