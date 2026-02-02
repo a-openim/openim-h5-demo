@@ -6,7 +6,12 @@
     @mousedown="startDrag"
     @touchstart="startDrag"
   >
-    <span class="ball-text">bruce-IM系统演示</span>
+    <div class="marquee-container">
+      <div class="marquee-content">
+        <span class="ball-text">bruce欢迎您</span>
+        <span class="ball-text">bruce欢迎您</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,6 +94,7 @@ onUnmounted(() => {
   z-index: 9999;
   user-select: none;
   transition: box-shadow 0.3s ease;
+  animation: bounce 5s ease-in-out infinite;
 
   &:hover {
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
@@ -98,14 +104,48 @@ onUnmounted(() => {
     box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
   }
 
-  .ball-text {
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.2;
-    padding: 5px;
-    word-break: break-all;
+  .marquee-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    
+    .marquee-content {
+      display: flex;
+      animation: marquee 10s linear infinite;
+      white-space: nowrap;
+    }
+    
+    .ball-text {
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      padding: 0 10px;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  75% {
+    transform: translateY(-20px);
   }
 }
 </style>

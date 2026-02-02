@@ -209,4 +209,7 @@ GitHub Pages 有单文件限制，但 GitHub Releases 几乎没有（单文件�
 重点： 使用 jsDelivr 这种 CDN 代理这个链接，速度极快：
 https://cdn.jsdelivr.net/gh/你的用户名/仓库名@v1.0.0/openIM.wasm
 
+
+https://cdn.jsdelivr.net/gh/a-openp/openim-h5@v1.0.0/openIM.wasm
+
 优势： 全球加速，不占服务器空间。

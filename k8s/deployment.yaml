@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: h5-openim          # 匹配 deploy.confg 中的 APP_NAME
+  namespace: openim        # 匹配 deploy.confg 中的 NAMESPACE
+  labels:
+    app: h5-openim
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: h5-openim
+  template:
+    metadata:
+      labels:
+        app: h5-openim
+    spec:
+      containers:
+      - name: h5-openim    # 容器名需与脚本 set image 的参数对应
+        image: 10.88.88.13:81/app/h5-openim:20260202175051
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"      # 达到最低要求 100m
+            memory: "256Mi"    # 达到最低要求 256Mi
+          limits:
+            cpu: "200m"      # 必须大于等于 requests
+            memory: "512Mi"    # 必须大于等于 requests
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5

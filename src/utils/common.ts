@@ -8,6 +8,29 @@ import zip from '@/assets/images/messageItem/zip.png'
 import pdf from '@/assets/images/messageItem/pdf.png'
 import unknown from '@/assets/images/messageItem/unknown.png'
 import beCalled from '@/assets/audio/newMsg.mp3'
+import welcomeAudio from '@/assets/audio/welcome.mp3'
+
+let welcomeAudioEl: HTMLAudioElement | null = null
+
+const playWelcomeAudio = () => {
+  if (!welcomeAudioEl) {
+    welcomeAudioEl = new Audio(welcomeAudio)
+    welcomeAudioEl.loop = true // 设置循环播放
+  }
+  
+  if (welcomeAudioEl.paused) {
+    welcomeAudioEl.play().catch((error) => {
+      console.log('Failed to play welcome audio:', error)
+    })
+  }
+}
+
+export const initWelcomeAudio = () => {
+  // 点击任意位置开始播放
+  window.addEventListener('click', playWelcomeAudio, { once: true })
+  window.addEventListener('touchstart', playWelcomeAudio, { once: true })
+  window.addEventListener('keydown', playWelcomeAudio, { once: true })
+}
 
 // i18n
 import { i18n } from '@/i18n'

@@ -50,7 +50,7 @@ dayjs.updateLocale('zh-cn', {
 })
 
 export const IMSDK = getSDK({
-  coreWasmPath: './openIM.wasm',
+  coreWasmPath: 'https://h5-v1-openim.36x9.com/openIM.wasm',
   sqlWasmPath: '/sql-wasm.wasm',
 })
 
