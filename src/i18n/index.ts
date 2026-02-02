@@ -36,17 +36,18 @@ export function i18nt(key: string) {
 }
 
 export const i18n = createI18n({
+  legacy: false,
   locale: localLanguage(),
   fallbackLocale: 'en-US',
   messages: loadLanguages(),
 })
 
 dayjs.locale(localLanguage())
-Locale.use(localLanguage(), i18n.global.messages[i18n.global.locale].vant)
+Locale.use(localLanguage(), i18n.global.messages.value[i18n.global.locale.value].vant)
 
 export function setLanguage(locale: string) {
-  i18n.global.locale = locale
+  i18n.global.locale.value = locale
   dayjs.locale(locale)
-  Locale.use(locale, i18n.global.messages[i18n.global.locale].vant)
+  Locale.use(locale, i18n.global.messages.value[i18n.global.locale.value].vant)
   sessionStorage.setItem('IMI18n', locale)
 }
