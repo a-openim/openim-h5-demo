@@ -1,8 +1,8 @@
 const BASE_DOMAIN = 'backend-openim.36x9.com'
-// Use local proxy for development to avoid CORS issues
-const CHAT_URL = '/chat'
-const API_URL = '/api'
-const WS_URL = '/msg_gateway'
+// Use full URLs for OpenIM SDK (WASM module needs direct connections)
+const CHAT_URL = `https://api-chat-openim.36x9.com`
+const API_URL = `https://api-openim.36x9.com`
+const WS_URL = `wss://msggateway-openim.36x9.com`
 
 export default {
   NODE_ENV: 'development',
