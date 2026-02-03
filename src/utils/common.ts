@@ -27,9 +27,9 @@ const playWelcomeAudio = () => {
 
 export const initWelcomeAudio = () => {
   // 点击任意位置开始播放
-  window.addEventListener('click', playWelcomeAudio, { once: true })
-  window.addEventListener('touchstart', playWelcomeAudio, { once: true })
-  window.addEventListener('keydown', playWelcomeAudio, { once: true })
+  // window.addEventListener('click', playWelcomeAudio, { once: true })
+  // window.addEventListener('touchstart', playWelcomeAudio, { once: true })
+  // window.addEventListener('keydown', playWelcomeAudio, { once: true })
 }
 
 // i18n
