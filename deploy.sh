@@ -51,12 +51,8 @@ fi
 
 echo -e "${GREEN}✓ Build completed successfully${NC}"
 
-echo -e "${YELLOW}Deploying to Cloudflare Pages branch: $PRODUCTION_BRANCH...${NC}"
-ENVIRONMENT="--branch=$PRODUCTION_BRANCH"
-
-# Deploy to Cloudflare Pages
-echo -e "${YELLOW}Deploying to Cloudflare Pages...${NC}"
-wrangler pages deploy "$BUILD_DIR" $ENVIRONMENT --project-name="$PROJECT_NAME" --commit-dirty=true
+echo -e "${YELLOW}Deploying to Cloudflare Pages production environment...${NC}"
+wrangler pages deploy "$BUILD_DIR" --project-name="$PROJECT_NAME" --commit-dirty=true --production
 
 echo -e "${GREEN}✓ Deployment completed successfully!${NC}"
 echo -e "${GREEN}Your site is now live on Cloudflare Pages${NC}"
