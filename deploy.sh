@@ -12,7 +12,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Configuration
-PROJECT_NAME="h5-openim"
+PROJECT_NAME="ken-im-h5"
 BUILD_DIR="dist"
 PRODUCTION_BRANCH="main"
 
