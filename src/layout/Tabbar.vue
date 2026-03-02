@@ -5,7 +5,7 @@
       :badge="conversationStore.storeUnReadCount"
       :badge-props="{ max: 99, showZero: false }"
     >
-      <span>bruce</span>
+      <span>{{ $t('chats') }}</span>
       <template #icon="props">
         <img :src="props.active ? conversation_active : conversation" />
       </template>

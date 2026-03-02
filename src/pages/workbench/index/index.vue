@@ -2,7 +2,7 @@
   <div class="flex flex-col h-screen bg-[#111] text-white overflow-hidden">
     <header class="p-4 flex justify-between items-center bg-[#1a1a1a]">
       <div class="flex items-center gap-2">
-        <span class="text-xl font-black italic tracking-tighter">至尊天下</span>
+        <span class="text-xl font-black italic tracking-tighter">{{ $t('appNameFull') }}</span>
       </div>
       <div class="flex items-center bg-[#2a2a2a] rounded-full px-3 py-1 gap-3 border border-gray-700">
         <div class="flex flex-col items-end">
